@@ -91,27 +91,27 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <p>Caixa</p>
-              <h2 className="text-2xl font-bold">R$ 153,655</h2>
+              <h2 className="text-2xl font-bold">R$ 1,653,655.90</h2>
               <p className="text-sm">12%</p>
               <div className="grid grid-cols-2 gap-4 pt-3">
                 <div className="text-sm ">
                   <p>Depósitos</p>
-                  <p>R$ 321,549</p>
+                  <p>R$ 3,121,549.32</p>
                   <p>43</p>
                 </div>
                 <div className="text-sm ">
                   <p>Saques</p>
-                  <p>R$ 167,839</p>
+                  <p>R$ 1,121,549.32</p>
                   <p>15%</p>
                 </div>
                 <div className="text-sm ">
                   <p>Transações</p>
-                  <p>R$ 489,388</p>
+                  <p>R$ 4,121,549.32</p>
                   <p>12%</p>
                 </div>
                 <div className="text-sm ">
                   <p>Taxas</p>
-                  <p>R$ 8,656</p>
+                  <p>R$ 8,656.93</p>
                   <p>12%</p>
                 </div>
               </div>
@@ -132,27 +132,27 @@ export default function Dashboard() {
               </CardHeader>
               <CardContent>
                 <p>Caixa</p>
-                <h2 className="text-2xl font-bold">R$ 153,655</h2>
+                <h2 className="text-2xl font-bold">R$  1,653,655.90</h2>
                 <p className="text-sm">12%</p>
                 <div className="grid grid-cols-2 gap-4 pt-3">
                   <div>
                     <p>Depósitos</p>
-                    <p>R$ 321,549</p>
+                    <p>R$ 3,121,549.32</p>
                     <p>43</p>
                   </div>
                   <div>
                     <p>Saques</p>
-                    <p>R$ 167,839</p>
+                    <p>R$ 1,121,549.32</p>
                     <p>15%</p>
                   </div>
                   <div>
                     <p>Transações</p>
-                    <p>R$ 489,388</p>
+                    <p>R$ 4,121,549.32</p>
                     <p>12%</p>
                   </div>
                   <div>
                     <p>Taxas</p>
-                    <p>R$ 8,656</p>
+                    <p>R$ 8,656.93</p>
                     <p>12%</p>
                   </div>
                 </div>
