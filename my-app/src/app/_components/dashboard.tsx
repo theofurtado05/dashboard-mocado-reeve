@@ -47,8 +47,8 @@ export default function Dashboard() {
             <Input type="date" placeholder="to Dec 31, 2022" />
           </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card className="bg-purple-600 text-white max-w-[480px] sm:max-w-full">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 w-full">
+          <Card className="bg-purple-600 text-white max-w-full sm:max-w-full">
             <CardHeader>
               <CardTitle>Total</CardTitle>
             </CardHeader>
@@ -89,7 +89,7 @@ export default function Dashboard() {
             "AnSpace - O Sortudo",
             "AnSpace - Heads",
           ].map((title) => (
-            <Card key={title} className="max-w-[480px] sm:max-w-full">
+            <Card key={title} className="max-w-full">
               <CardHeader>
                 <CardTitle>{title}</CardTitle>
               </CardHeader>
@@ -123,18 +123,18 @@ export default function Dashboard() {
             </Card>
           ))}
         </div>
-        <div className="grid gap-4 mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-          <Card className="p-2 max-w-[480px] sm:max-w-full">
+        <div className="grid gap-4 mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-full">
+          <Card className="p-2 max-w-full">
             <CardContent>
               <PieChart className="w-full h-64" />
             </CardContent>
           </Card>
-          <Card className="pt-6 max-w-[480px] sm:max-w-full"> 
+          <Card className="pt-6 mmax-w-full"> 
             <CardContent>
               <BarChart className="w-full h-64" />
             </CardContent>
           </Card>
-          <Card className="pt-6 max-w-[480px] sm:max-w-full">
+          <Card className="pt-6 max-w-full">
             <CardContent>
               <BarChart className="w-full h-64" />
             </CardContent>
