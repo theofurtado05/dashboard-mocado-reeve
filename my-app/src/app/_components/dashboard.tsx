@@ -1,4 +1,7 @@
 "use client"
+import { useState } from "react"
+import { useClickAway } from "react-use"
+import { motion } from "framer-motion"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,9 +10,14 @@ import { ResponsivePie } from "@nivo/pie"
 import { ResponsiveBar } from "@nivo/bar"
 
 export default function Dashboard() {
+  const [isOpen, setIsOpen] = useState(false)
+  //@ts-ignore
+  const menuRef = useClickAway(() => setIsOpen(false))
+  
+
   return (
     <div className="flex min-h-screen overflow-x-hidden max-w-screen">
-      <aside className="hidden sm:flex flex-col items-center w-20 p-4 space-y-4 bg-gray-100">
+      <aside className={`hidden sm:flex flex-col items-center w-20 p-4 space-y-4 bg-gray-100`}>
         <Avatar>
           <AvatarImage src="/placeholder-user.jpg" />
           <AvatarFallback>VO</AvatarFallback>
@@ -21,7 +29,25 @@ export default function Dashboard() {
           <SettingsIcon className="w-6 h-6 text-gray-600" />
         </nav>
       </aside>
-      <main className="flex-1 p-6 bg-white">
+      <motion.aside
+        //@ts-ignore
+        ref={menuRef}
+        initial={{ x: "-100%" }}
+        animate={{ x: isOpen ? 0 : "-100%" }}
+        className="fixed inset-y-0 left-0 z-50 flex flex-col items-center w-20 p-4 space-y-4 bg-gray-100 sm:hidden"
+      >
+        <Avatar>
+          <AvatarImage src="/placeholder-user.jpg" />
+          <AvatarFallback>VO</AvatarFallback>
+        </Avatar>
+        <nav className="flex flex-col space-y-4">
+          <HomeIcon className="w-6 h-6 text-gray-600" />
+          <GitGraphIcon className="w-6 h-6 text-gray-600" />
+          <BellIcon className="w-6 h-6 text-gray-600" />
+          <SettingsIcon className="w-6 h-6 text-gray-600" />
+        </nav>
+      </motion.aside>
+      <main className="flex-1 p-6 mt-5 bg-white">
         <header className="flex items-center justify-between pb-4 border-b">
           <div className="flex items-center space-x-4">
             <Avatar>
@@ -129,7 +155,7 @@ export default function Dashboard() {
               <PieChart className="w-full h-64" />
             </CardContent>
           </Card>
-          <Card className="pt-6 mmax-w-full"> 
+          <Card className="pt-6 max-w-full">
             <CardContent>
               <BarChart className="w-full h-64" />
             </CardContent>
@@ -141,6 +167,12 @@ export default function Dashboard() {
           </Card>
         </div>
       </main>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed top-4 left-4 z-50 sm:hidden"
+      >
+        <MenuIcon />
+      </button>
     </div>
   )
 }
@@ -329,6 +361,27 @@ function SettingsIcon(props: any) {
     >
       <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
       <circle cx="12" cy="12" r="3" />
+    </svg>
+  )
+}
+
+function MenuIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="18" x2="21" y2="18" />
     </svg>
   )
 }
