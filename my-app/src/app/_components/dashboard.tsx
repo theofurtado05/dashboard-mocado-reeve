@@ -54,7 +54,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <p>Caixa</p>
-              <h2 className="text-2xl font-bold">R$ 153,655.90</h2>
+              <h2 className="text-2xl font-bold">R$ 153,655</h2>
               <p className="text-sm">12%</p>
               <div className="grid grid-cols-2 gap-4 pt-3">
                 <div className="text-sm ">
