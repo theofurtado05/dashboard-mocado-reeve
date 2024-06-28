@@ -13,7 +13,6 @@ export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false)
   //@ts-ignore
   const menuRef = useClickAway(() => setIsOpen(false))
-  
 
   return (
     <div className="flex min-h-screen overflow-x-hidden max-w-screen">
@@ -30,26 +29,38 @@ export default function Dashboard() {
         </nav>
       </aside>
       <motion.aside
-        //@ts-ignore
+      //@ts-ignore
         ref={menuRef}
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         className="fixed inset-y-0 left-0 z-50 flex flex-col items-center w-20 p-4 space-y-4 bg-gray-100 sm:hidden"
       >
+        <span onClick={(e) => {
+                setIsOpen(false)
+            }} className="text-center w-full cursor-pointer">
+                X
+        </span>
         <Avatar>
           <AvatarImage src="/placeholder-user.jpg" />
           <AvatarFallback>VO</AvatarFallback>
         </Avatar>
         <nav className="flex flex-col space-y-4">
+            
           <HomeIcon className="w-6 h-6 text-gray-600" />
           <GitGraphIcon className="w-6 h-6 text-gray-600" />
           <BellIcon className="w-6 h-6 text-gray-600" />
           <SettingsIcon className="w-6 h-6 text-gray-600" />
         </nav>
       </motion.aside>
-      <main className="flex-1 p-6 mt-5 bg-white">
+      <main className="flex-1 p-6 bg-white">
         <header className="flex items-center justify-between pb-4 border-b">
           <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="sm:hidden"
+            >
+              <MenuIcon />
+            </button>
             <Avatar>
               <AvatarImage src="/placeholder-user.jpg" />
               <AvatarFallback>VO</AvatarFallback>
@@ -167,12 +178,6 @@ export default function Dashboard() {
           </Card>
         </div>
       </main>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 sm:hidden"
-      >
-        <MenuIcon />
-      </button>
     </div>
   )
 }
